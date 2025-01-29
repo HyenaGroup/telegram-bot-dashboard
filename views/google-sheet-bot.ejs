@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>บอท Google Sheet</title>
+</head>
+<body>
+  <h1>บอท Google Sheet</h1>
+  <% if (!bot.token) { %>
+    <p>ยังไม่ได้เพิ่มบอท</p>
+    <a href="/google-sheet-bot/add-bot">เพิ่มบอท</a>
+  <% } else { %>
+    <p>ชื่อบอท: <%= bot.botInfo.username %></p>
+    <p>สถานะ: เชื่อมต่อแล้ว</p>
+    <!-- คุณสามารถเพิ่มข้อมูลเพิ่มเติมได้ที่นี่ -->
+  <% } %>
+
+  <% if (!bot.credentials) { %>
+    <p>ยังไม่ได้อัปโหลดไฟล์ Credential</p>
+    <a href="/google-sheet-bot/upload-credentials">อัปโหลดไฟล์ Credential</a>
+  <% } else { %>
+    <p>ไฟล์ Credential ถูกอัปโหลดแล้ว</p>
+  <% } %>
+
+  <% if (!bot.spreadsheetId) { %>
+    <p>ยังไม่ได้กำหนด Spreadsheet ID</p>
+    <a href="/google-sheet-bot/set-spreadsheet">กำหนด Spreadsheet ID</a>
+  <% } else { %>
+    <p>Spreadsheet ID: <%= bot.spreadsheetId %></p>
+  <% } %>
+
+  <a href="/">กลับหน้าหลัก</a>
+</body>
+</html>
